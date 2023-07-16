@@ -1,0 +1,85 @@
+
+<div class="container-xxl py-5 bg-white">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-lg-6 wow fadeIn centerdiv" data-wow-delay="0.1s">
+        <div class="bg-transparent p-5">
+          <h1 class="text-uppercase mb-4 text-center titre">Ajouter Produit</h1>
+
+          <form (ngSubmit)="AjouterProduit()" id="feedback-form">
+            <!-- Form fields -->
+            <div class="row g-3">
+           
+              <div class="form-floating">
+                <input required type="text" id="nomProduit" [(ngModel)]="produit.nom" name="nomProduit" class="form-control bg-white" style="height: 100px;border-radius:8px"  />
+                <label for="message" class="thick">Nom</label>
+              </div>
+            </div>
+            <br>
+
+          <div class="col-12">
+              <div class="form-floating">
+                  <input required type="number" id="prixProduit" [(ngModel)]="produit.prix" name="prixProduit" class="form-control bg-white" style="height: 100px;border-radius:8px"  />
+                  <label for="message" class="thick">Prix</label>
+                </div>
+          </div>
+          <br>
+
+          <div class="col-12">
+              <div class="form-floating">
+                  <input required type="number"  id="quantiteProduit" [(ngModel)]="produit.quantity" name="quantiteProduit" class="form-control bg-white" style="height: 100px;border-radius:8px"  />
+                  <label for="message" class="thick">Quantité</label>
+                </div>
+            </div>
+            <br>
+
+          <div class="col-12">
+            <div class="form-group">
+
+              <button class="btn btn-primary col-12 " style="border-radius:8px" type="submit" name="submit_reg">Submit</button>
+                                </div>
+          </div>
+
+
+            <!-- Submit button -->
+          </form>
+        </div>
+      </div>
+
+          <div class="col-lg-6">
+              <div class="search-container">
+                  <input type="text" [(ngModel)]="searchQuery" placeholder="Recherche Par Nom" class="search-input col-lg-12" style="border-radius:8px" (input)="RechercherProduit()" />
+                  <br>
+              </div>
+              
+        <h2 class="text-uppercase mb-4 text-center titre">Liste Produits</h2>
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Action 1</th>
+                <th>Action 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let produit of listproduits">
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.quantity }}</td>
+                
+                <td>
+              <button class="btn btn-primary" style="border-radius: 8px;"(click)="SupprimerProduit(produit.idProduit)" >Supprimer </button>
+             <td>   <button class="btn btn-warning" style="border-radius: 8px;"(click)="MAJ(produit)">Modifier</button> </td>
+           
+  
+              </tr>
+            </tbody>
+          <!-- Table content -->
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

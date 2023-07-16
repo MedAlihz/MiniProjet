@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="search-container col-md-12" style="text-align: center">
+        <input type="text" [(ngModel)]="searchQuery" placeholder="Recherche Par Nom" class="search-input " style="border-radius:8px" (input)="RechercherProduit()" />
+        <br>
+    </div>
+
+
+<div class="card-row">
+    
+  <div class="card-col" *ngFor="let produit of listproduits">
+    <mat-card>
+        <mat-card-content>
+          <h2 class="card-title thick" mat-card-title>{{produit.nom}}</h2>
+          <p class="card-subtitle titre" mat-card-subtitle> number of places available: {{produit.quantity}}</p>
+          <p class="card-content titre" mat-card-content> Price : {{produit.prix}}</p>
+        </mat-card-content>
+        <mat-card-actions class="card-actions">
+  
+          <button class="btn btn-primary" style="border-radius: 8px;" (click)="SupprimerProduit(produit.idProduit)" >Supprimer </button>
+  
+        </mat-card-actions>
+      
+           
+      </mat-card>
+  </div>
+</div>
